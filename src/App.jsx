@@ -8,33 +8,45 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!firstName.trim() || !lastName.trim()) {
+      setFullName("");
+      return;
+    }
     setFullName(`${firstName} ${lastName}`);
   };
 
-  const isDisabled = !firstName.trim() || !lastName.trim();
-
   return (
     <>
-      <div >
+      <div>
         <h1>Full Name Display</h1>
 
         <form onSubmit={handleSubmit}>
-          <div >
+          <div>
             <label htmlFor="firstName">First Name :</label>
-            <input id="firstName" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)}
-            required />
+            <input
+              id="firstName"
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
           </div>
 
-          <div >
+          <div>
             <label htmlFor="lastName">Last Name :</label>
-            <input id="lastName" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}
-            required />
+            <input
+              id="lastName"
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
           </div>
-          <button type="submit" disabled={isDisabled}>Submit</button>
 
-          
+          <button type="submit">Submit</button>
         </form>
-        {fullName && (<p>Full Name : {fullName}</p>)}
+
+        {fullName && <p>Full Name: {fullName}</p>}
       </div>
     </>
   );
