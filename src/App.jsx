@@ -32,8 +32,9 @@ function App() {
           </div>
           <button type="submit" disabled={isDisabled}>Submit</button>
 
-          {fullName && (<p>Full Name : {fullName}</p>)}
+          
         </form>
+        {fullName && (<p>Full Name : {fullName}</p>)}
       </div>
     </>
   );
